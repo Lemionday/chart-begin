@@ -1,0 +1,30 @@
+version: "3.8"
+
+services:
+  mysql:
+    image: mysql
+    restart: always
+    # build:
+    #   context: ./mysql
+    ports:
+      - 3307:3306
+    environment:
+      - mysql_USER=caradmin
+      - mysql_PASSWORD=root1234
+      # - mysql_MYSQL_LOCALHOST_USER=caradmin
+      - mysql_DATABASE=carres
+      # - mysql_ALLOW_EMPTY_PASSWORD=yes
+      - mysql_ROOT_PASSWORD=root1234
+    volumes:
+      - mysql:/var/lib/mysql
+      - mysql_config:/etc/mysql
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
+
+volumes:
+  mysql:
+  mysql_config:
