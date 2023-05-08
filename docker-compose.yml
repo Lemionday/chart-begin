@@ -7,23 +7,22 @@ services:
     # build:
     #   context: ./mysql
     ports:
-      - 3307:3306
+      - 3306:3306
     environment:
-      - mysql_USER=caradmin
-      - mysql_PASSWORD=root1234
+      # - mysql_USER=
+      # - mysql_PASSWORD=123456789
       # - mysql_MYSQL_LOCALHOST_USER=caradmin
-      - mysql_DATABASE=carres
+      - MYSQL_DATABASE=xmpp_demo
       # - mysql_ALLOW_EMPTY_PASSWORD=yes
-      - mysql_ROOT_PASSWORD=root1234
+      - MYSQL_ROOT_PASSWORD=123456789
     volumes:
       - mysql:/var/lib/mysql
       - mysql_config:/etc/mysql
-
-  adminer:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
+  # adminer:
+  #   image: adminer
+  #   restart: always
+  #   ports:
+  #     - 8080:8080
 
 volumes:
   mysql:
